@@ -40,7 +40,7 @@ export const Login = async(req, res) =>{
 
         const match = await bcrypt.compare(req.body.password, user[0].password);
 
-        if(!match) return res.status(400).json({msg:"wrong password!"});
+        if(!match) return res.status(400).json({msg:"wrong password"});
 
         const userId = user[0].id;
         const name = user[0].name;
@@ -62,7 +62,7 @@ export const Login = async(req, res) =>{
         })
         res.json({accessToken})
     } catch (error) {
-        res.status(400).json({msg:"Email not found!!!"})
+        res.status(400).json({msg:"Email not found!"})
     }
 }
 
